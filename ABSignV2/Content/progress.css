@@ -1,0 +1,13 @@
+﻿.activity li {
+    margin-bottom: 5px;
+}
+
+.activity h2 {
+    color: white;
+}
+
+.col-6 {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}

@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ABSignV2.Sign>
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Signs";
+}
+
+<style>
+    body {
+        background-color: #17A2B8;
+        font-family: 'Baloo', cursive;
+    }
+
+    h2 {
+        color: #fff;
+    }
+
+    #sign-name {
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    .row-striped {
+        color: #D01E38;
+        font-size: 2rem;
+    }
+
+        .row-striped a {
+            color: #344d90;
+            font-size: 1.2rem;
+            letter-spacing: .5px;
+        }
+
+    #create a {
+        color: #fff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        float: right;
+        border-bottom: 1px dashed #fff;
+    }
+
+    .row-striped:nth-of-type(odd) {
+        height: 40px;
+        line-height: 40px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+
+    .row-striped:nth-of-type(even) {
+        height: 40px;
+        line-height: 40px;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+</style>
+
+<h2>Library</h2>
+
+@if (HttpContext.Current.User.Identity.GetUserId() != null)
+{
+    <div id="create">
+        @Html.ActionLink("Add your own ASL sign", "Create")
+    </div><br />
+}
+
+<hr />
+<div>
+    @foreach (var item in Model)
+    {
+        if (item.AdminUpload == true || item.username == HttpContext.Current.User.Identity.GetUserId() ||
+            item.username == null)
+        {
+            <div class="row row-striped">
+                <div class="col-4">
+                    @Html.DisplayFor(modelItem => item.SignName)
+                </div>
+
+                @*<td> @Html.DisplayFor(modelItem => item.AdminUpload) </td>*@
+
+                <div class="col-4">
+                    @Html.ActionLink("View ASL Sign", "Details", new { id = item.SignID })
+                    @if (item.username == HttpContext.Current.User.Identity.GetUserId())
+                    {
+                        if (item.AdminUpload != true)
+                        {
+                        <span> |</span>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SignID })
+                        }
+                    }
+                </div>
+            </div>
+        }
+    }
+</div>
+

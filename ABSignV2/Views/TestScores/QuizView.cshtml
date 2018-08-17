@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ABSignV2.TestScore>
+
+<style>
+    body {
+        background-color: #F3511B;
+    }
+</style>
+
+<h4 id="topbar">Select the ASL quiz you would like to take.</h4><br />
+
+<form id="quizForm" name="quizSelector">
+    <select id="quizSelector" name="quizSelector">
+        <option value="1" id="option-1">Alphabet Quiz #1</option>
+        <option value="2" id="option-2">Alphabet Quiz #2</option>
+        <option value="3" id="option-3">Alphabet Quiz #3</option>
+    </select>
+    <button type="button" onclick="ChooseTest('navContent')" class="btn btn-default">Start Quiz</button>
+</form>
+
+<div id="navContent" style="display: none;">
+    <div id="game1"></div>
+    <div id="game2"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="~/Scripts/controller.js"></script>
+<script src="~/Scripts/jquery.js"></script>
+

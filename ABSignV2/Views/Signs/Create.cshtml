@@ -1,0 +1,68 @@
+﻿@model ABSignV2.Sign
+@{
+    ViewBag.Title = "Create";
+}
+
+<style>
+    body {
+        background-color: #17A2B8;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+    }
+
+    h2, h4 {
+        color: #fff;
+        font-family: 'Baloo', cursive;
+    }
+
+    #back a {
+        color: #fff;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        border-bottom: 1px dashed #fff;
+        font-family: 'Baloo', cursive;
+        float: right;
+    }
+</style>
+
+<h2>Add Your Own ASL Sign</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <p id="back">@Html.ActionLink("← Back to List", "Index")</p>
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.SignName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SignName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SignName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.AdminUpload, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.AdminUpload)
+                    @Html.ValidationMessageFor(model => model.AdminUpload, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @*@Html.ActionLink("Add image for sign", "Create", "Images", new { id = Model.SignID }, null)*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

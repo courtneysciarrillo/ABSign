@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ABSignV2.Image>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "Flashcards";
+}
+
+<style>
+    body {
+        background-color: #FFC107;
+    }
+
+    .flashcard-img {
+        max-width: 240px;
+        max-height: 170px;
+    }
+</style>
+
+<h2>Flashcards</h2>
+<hr />
+
+<div id="flashGrid">
+    @foreach (var item in Model)
+    {
+        if (item.Sign.AdminUpload == true || item.username == HttpContext.Current.User.Identity.GetUserId() ||
+                item.username == null)
+        {
+
+            <div class="flashcard">
+                <div class="flashFront">@Html.DisplayFor(modelItem => item.Sign.SignName)</div>
+                <div class="flashBack">
+                    @if (item.ImageBin != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.ImageBin);
+                        var imgsrc = string.Format("data:image/jpeg; base64,{0}", base64);
+                        <img class="flashcard-img img-fluid" src="@imgsrc" />}
+                </div>
+            </div>
+        }
+    }
+</div>

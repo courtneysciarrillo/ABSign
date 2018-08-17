@@ -1,0 +1,48 @@
+﻿@model ABSignV2.TestScore
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    body {
+        background-color: #D01E38;
+    }
+</style>
+
+<div class="bg-overlay">
+
+
+<div class="activity">
+    <h2>Details</h2>
+</div>
+
+<div>
+    <h4>TestScore</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TestScoreID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+</div>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ee6e38c2dd684007b1a8ce6805b10077" Name="Diagram1">
+        <EntityTypeShape EntityType="AbSignV2Model.Collection" Width="1.5" PointX="4.875" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbSignV2Model.Image" Width="1.5" PointX="8.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbSignV2Model.Profile" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbSignV2Model.Sign" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbSignV2Model.TestScore" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
+        <AssociationConnector Association="AbSignV2Model.FK_Collections_Profiles" ManuallyRouted="false" />
+        <AssociationConnector Association="AbSignV2Model.FK_Collections_Signs" ManuallyRouted="false" />
+        <AssociationConnector Association="AbSignV2Model.FK_Images_Signs" ManuallyRouted="false" />
+        <AssociationConnector Association="AbSignV2Model.FK_TestScores_Profiles" ManuallyRouted="false" />
+<<<<<<< HEAD
+        <EntityTypeShape EntityType="AbSignV2Model.C__MigrationHistory" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AbSignV2Model.AspNetRole" Width="1.5" PointX="3.375" PointY="8.5" />
+        <EntityTypeShape EntityType="AbSignV2Model.AspNetUserClaim" Width="1.5" PointX="7.875" PointY="9.625" />
+        <EntityTypeShape EntityType="AbSignV2Model.AspNetUserLogin" Width="1.5" PointX="7.875" PointY="7" />
+        <EntityTypeShape EntityType="AbSignV2Model.AspNetUser" Width="1.5" PointX="5.625" PointY="7.375" />
+        <AssociationConnector Association="AbSignV2Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="AbSignV2Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="AbSignV2Model.AspNetUserRoles" />
+=======
+        
+        
+        
+        
+        
+        
+        
+        <AssociationConnector Association="AbSignV2Model.FK_Profiles_AspNetUsers" />
+        <EntityTypeShape EntityType="AbSignV2Model.C__MigrationHistory1" Width="1.5" PointX="7.2465347942181548" PointY="13.528790316325049" />
+        <EntityTypeShape EntityType="AbSignV2Model.sysdiagram" Width="1.5" PointX="9.6694173541243273" PointY="19.54305047706843" />
+        <AssociationConnector Association="AbSignV2Model.AspNetUserRoles1" />
+        <AssociationConnector Association="AbSignV2Model.FK_Signs_AspNetUsers" />
+        
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; fe2ee90eab4bbba92156e375d166eb39a47cc76e
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

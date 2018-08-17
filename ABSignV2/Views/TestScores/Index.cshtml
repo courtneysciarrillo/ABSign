@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ABSignV2.TestScore>
+@using Microsoft.AspNet.Identity
+
+<style>
+    body {
+        background-color: #D01E38;
+    }
+
+    h5 {
+        font-size: 1.5rem;
+    }
+</style>
+
+<div class="container activity">
+<h2>Activity</h2>
+    <hr />
+        <div class="row">
+            <div class="col-6" style="margin-left:15px;">
+                @foreach (var item in Model)
+                {
+                    if (item.username == HttpContext.Current.User.Identity.GetUserId() && HttpContext.Current.User.Identity.GetUserId() != null)
+                    {
+
+                        <div>
+
+                            <div class="progress" style="height:30px">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated"
+                                     style="width:@ABSignV2.TestScore.GetPercent(item.Score)%;
+                                            background-color:
+                                            @if (item.Score <= 3) {@Html.Raw("#e7552c")}
+                                            @if (item.Score >= 4 && item.Score <= 6) {@Html.Raw("#ffb745")}
+                                            @if (item.Score == 10) {@Html.Raw("#1dd331")};">
+
+                                    @ABSignV2.TestScore.GetPercent(item.Score)%
+                                </div>
+                            </div>
+                            <p>08/24/2018</p>
+
+
+                            @*@Html.ActionLink("Score Details", "Details", new { id = item.TestScoreID })*@
+                        </div>
+                    }
+                }
+                
+                @if (HttpContext.Current.User.Identity.GetUserId() == null) {
+                    <div class="activity-login">
+                        <h5>Log in to view your activity.</h5>
+                        <a href="@Url.Action("Login", "Account")"><button class="btn btn-default">Login</button></a>
+                    </div>
+                }
+            </div>
+        </div>
+</div>

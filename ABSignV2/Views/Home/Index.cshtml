@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<style>
+    body, .menu-container, .main-content,
+    .hex-wrapper, .non-hex-wrapper {
+        margin: 0;
+        padding: 0;
+    }
+
+    h4 {
+        color: #fff;
+        font-family: 'Raleway',sans-serif;
+        text-transform: uppercase;
+        padding-top: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .mini-menu {
+        opacity: 0.7;
+    }
+
+    .mini-menu:hover {
+        cursor: pointer;
+        opacity: 1.0;
+    }
+
+
+
+    .mini-menu img {
+        -webkit-transition: width 2s, height 2s, -webkit-transform 2s; /* Safari */
+        transition: width 2s, height 2s, transform 2s;
+    }
+
+        .mini-menu img:hover {
+            width: 300px;
+            height: 300px;
+            -webkit-transform: rotate(180deg); /* Safari */
+            transform: rotate(180deg);
+        }
+
+
+    #close-menu:hover {
+        cursor: pointer;
+    }
+
+</style>
+<body style="background-image: url('../../img/bg-image1.jpg');background-size:cover;background-position:center top;background-repeat:no-repeat;max-height:800px;height:100%;">
+    @{
+        ViewBag.Title = "Home Page";
+        Layout = null;
+    }
+
+    <script>
+        function SwapDivs(div1, div2) {
+            d1 = document.getElementById(div1);
+            d2 = document.getElementById(div2);
+            if (d2.style.display == "none") {
+                d1.style.display = "none";
+                d2.style.display = "";
+            }
+            else {
+                d1.style.display = "";
+                d2.style.display = "none";
+            }
+        }
+    </script>
+
+<div class="menu-container" style="max-width:2400px;width:100%;">
+
+    <div class="non-hex-wrapper" style="display:block;width:100%;height:420px;" id="orig">
+        <div onclick="SwapDivs('orig', 'swap')" class="mini-menu" style="padding:20px;display:inline-flex;flex-direction:column;align-items:center;float:right;width:100px;margin-right:6px;">
+            <img src="~/img/menu-ab-sign.png" style="height:80px;width:90px;" />
+            <h4>Menu</h4>
+        </div>
+        
+        <div class="main-content" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: 100%;">
+            <img src="~/img/absign-logo.png" style="height:80px;"/>
+            <h1 style="color:#fff;font-family:'Raleway',sans-serif;">Learn American Sign Language</h1>
+        </div>
+    </div>
+
+
+<div class="hex-wrapper fadeIn" style="display: none; margin: 60px;" id="swap">
+    <img id="close-menu" onclick="SwapDivs('orig', 'swap')" src="https://www.rescuefreedom.org/wp-content/uploads/2018/02/x-close-icon-white.png" style="float: right; height: 50px;" />
+
+            <div class="hex-row">
+                <div class="hex-row shift">
+                    <a href="@Url.Action("Register", "Account")">
+                        <div class="hexagon" id="nav-register">
+                            Register
+                            <div class="face1"></div>
+                            <div class="face2"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <a href="@Url.Action("Login", "Account")">
+                    <div class="hexagon" id="nav-login">
+                        Login
+                        <div class="face1"></div>
+                        <div class="face2"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="hex-row">
+                <a href="@Url.Action("Index", "Images")">
+                    <div class="hexagon" id="nav-flashcards">
+                        Study
+                        <div class="face1"></div>
+                        <div class="face2"></div>
+                    </div>
+                </a>
+                <div class="hexagon" id="nav-blank">
+                    <img src="~/img/absign-logo.png" style="width:100%;" />
+                    <div class="face1"></div>
+                    <div class="face2"></div>
+                </div>
+                    <a href="@Url.Action("Index", "Signs")">
+                        <div class="hexagon" id="nav-library">
+                            Learn
+                            <div class="face1"></div>
+                            <div class="face2"></div>
+                        </div>
+                    </a>
+            </div>
+            <div class="hex-row shift">
+                <a href="@Url.Action("quizview", "testscores")">
+                    <div class="hexagon" id="nav-quiz">
+                        Quiz
+                        <div class="face1"></div>
+                        <div class="face2"></div>
+                    </div>
+                </a>
+                <a href="@Url.Action("Index", "TestScores")">
+                    <div class="hexagon" id="nav-progress">
+                        Progress
+                        <div class="face1"></div>
+                        <div class="face2"></div>
+                    </div>
+                </a>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>
